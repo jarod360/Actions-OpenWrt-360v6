@@ -10,7 +10,7 @@
 # See /LICENSE for more information.
 #
 rm -rf package/feeds/luci/luci-app-ssr-plus
-rm -rf package/feeds/luci/luci-app-filetransfer
+# rm -rf package/feeds/luci/luci-app-filetransfer
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.0.1/g' package/base-files/files/bin/config_generate
 
