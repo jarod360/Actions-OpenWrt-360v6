@@ -86,7 +86,7 @@ jobs:
 
     - name: Upload config
       uses: actions/upload-artifact@main
-      if: steps.compile.outputs.status == 'success' && env.UPLOAD_BIN_DIR == 'true'
+      if: env.UPLOAD_BIN_DIR == 'true'
       with:
         name: lede_config
         path: openwrt/.config
