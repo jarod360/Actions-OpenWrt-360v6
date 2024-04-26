@@ -37,3 +37,4 @@ sed -i 's/IMG_PREFIX:=$(VERSION_DIST_SANITIZED)/IMG_PREFIX:=360V6-$(shell TZ=UTC
 #加载ipk
 git clone https://github.com/jarod360/luci-app-ttyd package/luci-app-ttyd
 svn co https://github.com/jarod360/packages/trunk/ttyd package/ttyd
+svn co https://github.com/jarod360/packages/trunk/libwebsockets package/libwebsockets
