@@ -11,6 +11,9 @@
 #
 # rm -rf package/feeds/luci/luci-app-ssr-plus
 # rm -rf package/feeds/luci/luci-app-filetransfer
+#移除不用软件包  
+rm -rf package/lean/luci-app-ttyd
+rm -rf feeds/packages/utils/ttyd
 
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.0.254/g' package/base-files/files/bin/config_generate
@@ -30,3 +33,7 @@ sed -i 's/IMG_PREFIX:=$(VERSION_DIST_SANITIZED)/IMG_PREFIX:=360V6-$(shell TZ=UTC
 
 # Modify hostname
 #sed -i 's/OpenWrt/P3TERX-Router/g' package/base-files/files/bin/config_generate
+
+#加载ipk
+git clone https://github.com/jarod360/luci-app-ttyd package/luci-app-ttyd
+svn co https://github.com/jarod360/packages/trunk/ttyd package/ttyd
