@@ -14,6 +14,7 @@
 #移除不用软件包  
 rm -rf feeds/packages/libs/libwebsockets
 rm -rf feeds/luci/applications/luci-app-ttyd
+rm -rf feeds/packages/utils/ttyd
 
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.0.254/g' package/base-files/files/bin/config_generate
