@@ -46,7 +46,10 @@ git clone -b openwrt-18.06 https://github.com/tty228/luci-app-wechatpush.git pac
 git clone https://github.com/jarod360/luci-app-xupnpd package/luci-app-xupnpd
 git clone https://github.com/jarod360/luci-app-msd_lite package/luci-app-msd_lite
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
-svn co https://github.com/coolsnowwolf/packages/trunk/net/msd_lite package/msd_lite
+curl -L -o msd_lite.tar.gz https://github.com/coolsnowwolf/packages/archive/master.tar.gz
+tar -xzf msd_lite.tar.gz
+mv packages-master/net/msd_lite/ package/msd_lite
+rm msd_lite.tar.gz
 
 # 调整argon登录框为居中
 sed -i "/.login-page {/i\\
