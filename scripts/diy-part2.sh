@@ -17,8 +17,8 @@ rm -rf feeds/luci/applications/luci-app-ttyd
 rm -rf feeds/packages/utils/ttyd
 rm -rf feeds/luci/applications/luci-app-serverchan
 rm -rf feeds/luci/themes/luci-theme-argon
-#rm -rf feeds/luci/applications/luci-app-msd_lite
-#rm -rf feeds/packages/net/msd_lite
+rm -rf feeds/luci/applications/luci-app-msd_lite
+rm -rf feeds/packages/net/msd_lite
 
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.0.254/g' package/base-files/files/bin/config_generate
@@ -43,13 +43,13 @@ sed -i 's/IMG_PREFIX:=$(VERSION_DIST_SANITIZED)/IMG_PREFIX:=360V6-$(shell TZ=UTC
 git clone https://github.com/jarod360/luci-app-ttyd package/luci-app-ttyd
 git clone https://github.com/jarod360/packages package/mypackge
 git clone -b openwrt-18.06 https://github.com/tty228/luci-app-wechatpush.git packge/luci-app-serverchan
-git clone https://github.com/jarod360/luci-app-xupnpd package/luci-app-xupnpd
-#git clone https://github.com/jarod360/luci-app-msd_lite package/luci-app-msd_lite
+#git clone https://github.com/jarod360/luci-app-xupnpd package/luci-app-xupnpd
+git clone https://github.com/jarod360/luci-app-msd_lite package/luci-app-msd_lite
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
-#curl -L -o msd_lite.tar.gz https://github.com/coolsnowwolf/packages/archive/master.tar.gz
-#tar -xzf msd_lite.tar.gz
-#mv packages-master/net/msd_lite/ package/msd_lite
-#rm msd_lite.tar.gz
+curl -L -o msd_lite.tar.gz https://github.com/coolsnowwolf/packages/archive/master.tar.gz
+tar -xzf msd_lite.tar.gz
+mv packages-master/net/msd_lite/ package/msd_lite
+rm msd_lite.tar.gz
 
 # 调整argon登录框为居中
 sed -i "/.login-page {/i\\
