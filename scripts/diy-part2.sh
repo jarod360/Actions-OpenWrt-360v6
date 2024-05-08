@@ -16,6 +16,7 @@ rm -rf feeds/packages/libs/libwebsockets
 rm -rf feeds/luci/applications/luci-app-ttyd
 rm -rf feeds/packages/utils/ttyd
 rm -rf feeds/luci/applications/luci-app-serverchan
+rm -rf feeds/luci/themes/luci-theme-argon
 
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.0.254/g' package/base-files/files/bin/config_generate
@@ -41,3 +42,44 @@ git clone https://github.com/jarod360/luci-app-ttyd package/luci-app-ttyd
 git clone https://github.com/jarod360/packages package/mypackge
 git clone -b openwrt-18.06 https://github.com/tty228/luci-app-wechatpush.git packge/luci-app-serverchan
 git clone https://github.com/jarod360/luci-app-xupnpd package/luci-app-xupnpd
+git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
+
+# 调整argon登录框为居中
+sed -i "/.login-page {/i\\
+.login-container {\n\
+  margin: auto;\n\
+  height: 420px\!important;\n\
+  min-height: 420px\!important;\n\
+  left: 0;\n\
+  right: 0;\n\
+  bottom: 0;\n\
+  margin-left: auto\!important;\n\
+  border-radius: 15px;\n\
+  width: 350px\!important;\n\
+}\n\
+.login-form {\n\
+  background-color: rgba(255, 255, 255, 0.4)\!important;\n\
+  border-radius: 15px;\n\
+}\n\
+.login-form .brand {\n\
+  margin: 15px auto\!important;\n\
+}\n\
+.login-form .form-login {\n\
+    padding: 10px 50px\!important;\n\
+}\n\
+.login-form .errorbox {\n\
+  padding: 10px\!important;\n\
+}\n\
+.login-form .cbi-button-apply {\n\
+  margin: 15px auto\!important;\n\
+}\n\
+.input-group {\n\
+  margin-bottom: 1rem\!important;\n\
+}\n\
+.input-group input {\n\
+  margin-bottom: 0\!important;\n\
+}\n\
+.ftc {\n\
+  bottom: 0\!important;\n\
+}" package/luci-theme-argon/htdocs/luci-static/argon/css/cascade.css
+sed -i "s/margin-left: 0rem \!important;/margin-left: auto\!important;/g" package/luci-theme-argon/htdocs/luci-static/argon/css/cascade.css
