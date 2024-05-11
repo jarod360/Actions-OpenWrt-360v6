@@ -1,0 +1,9 @@
+
+config msd_lite 'config'
+	option port '7088'
+	option log_file '/tmp/msd.log'
+	option threads '0'
+	option enable '1'
+	option source 'eth2'
+	option rejointime '0'
+
