@@ -1,0 +1,65 @@
+
+config interface 'loopback'
+	option ifname 'lo'
+	option proto 'static'
+	option ipaddr '127.0.0.1'
+	option netmask '255.0.0.0'
+
+config globals 'globals'
+	option ula_prefix 'fdb1:15f5:45c6::/48'
+
+config interface 'lan'
+	option type 'bridge'
+	option proto 'static'
+	option netmask '255.255.255.0'
+	option multicast_querier '0'
+	option igmp_snooping '0'
+	option delegate '0'
+	option ipaddr '192.168.0.254'
+	option _orig_ifname 'eth1 eth2 eth3 wifi0.network1 wifi1.network1'
+	option _orig_bridge 'true'
+	option gateway '192.168.0.1'
+	option dns '192.168.0.1'
+	option ifname 'eth0 eth1 eth3'
+	option force_link '1'
+
+config device 'lan_eth1_dev'
+	option name 'eth1'
+	option macaddr 'c8:5b:a0:e7:d1:0c'
+	option multicast_to_unicast '0
+'
+
+config device 'lan_eth2_dev'
+	option name 'eth2'
+	option macaddr 'c8:5b:a0:e7:d1:0c'
+
+config device 'lan_eth3_dev'
+	option name 'eth3'
+	option macaddr 'c8:5b:a0:e7:d1:0c'
+
+config device 'wan_eth0_dev'
+	option name 'eth0'
+	option macaddr 'c8:5b:a0:e7:d1:0d'
+
+config interface 'IPTV'
+	option ifname 'eth2'
+	option _orig_ifname 'eth2'
+	option _orig_bridge 'false'
+	option proto 'none'
+	option auto '1'
+	option delegate '0'
+
+config route
+	option target '192.168.1.1'
+	option gateway '192.168.1.107'
+	option interface 'Cat'
+
+config interface 'Cat'
+	option _orig_ifname 'eth3'
+	option _orig_bridge 'false'
+	option ifname 'br-lan.2'
+	option proto 'static'
+	option ipaddr '192.168.1.107'
+	option netmask '255.255.255.0'
+	option delegate '0'
+
