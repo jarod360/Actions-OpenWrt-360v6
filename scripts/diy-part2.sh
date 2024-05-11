@@ -22,6 +22,10 @@ rm -rf feeds/packages/net/msd_lite
 rm -rf feeds/luci/applications/luci-app-serverchan
 rm -rf feeds/kenzo/luci-app-wechatpush
 
+# 修改版本信息
+date=`date +%Y.%m.%d`
+sed -i 's/OpenWrt/OpenWrt Build '$date' By Jarod/g' package/addition/default-settings/files/99-default-settings
+sed -i 's/R23.11.20/R24.05.01/g' package/addition/default-settings/files/99-default-settings
 # 修改插件名字
 sed -i 's/"网络存储"/"存储"/g' `grep "网络存储" -rl ./`
 # Modify default IP
