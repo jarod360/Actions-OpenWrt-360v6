@@ -1,0 +1,17 @@
+
+config ddns 'global'
+	option ddns_dateformat '%F %R'
+	option ddns_loglines '250'
+	option upd_privateip '0'
+
+config service 'Cloudflare'
+	option service_name 'cloudflare.com-v4'
+	option enabled '1'
+	option lookup_host 'zesun.top'
+	option domain 'zesun.top'
+	option password '31f4bc67c135969f32610bfa3166296711130'
+	option username 'jarod360@live.com'
+	option ip_source 'web'
+	option interface 'lan'
+	option bind_network 'lan'
+
