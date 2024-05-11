@@ -1,0 +1,305 @@
+
+config dnsmasq
+	option domainneeded '1'
+	option localise_queries '1'
+	option rebind_protection '1'
+	option rebind_localhost '1'
+	option local '/lan/'
+	option domain 'lan'
+	option expandhosts '1'
+	option authoritative '1'
+	option readethers '1'
+	option leasefile '/tmp/dhcp.leases'
+	option resolvfile '/tmp/resolv.conf.d/resolv.conf.auto'
+	option nonwildcard '1'
+	option localservice '1'
+	option cachesize '8000'
+	option mini_ttl '3600'
+	option ednspacket_max '1232'
+	option localuse '1'
+	option filter_aaaa '1'
+	option quietdhcp '1'
+	option noresolv '0'
+
+config dhcp 'lan'
+	option interface 'lan'
+	option start '100'
+	option limit '150'
+	option leasetime '12h'
+	option force '1'
+	option ra_slaac '1'
+	list ra_flags 'managed-config'
+	list ra_flags 'other-config'
+	list dhcp_option 'tag:!proxy,3,192.168.0.1'
+	list dhcp_option 'tag:!proxy,6,192.168.0.1'
+
+config dhcp 'wan'
+	option interface 'wan'
+	option ignore '1'
+
+config odhcpd 'odhcpd'
+	option maindhcp '0'
+	option leasefile '/tmp/hosts/odhcpd'
+	option leasetrigger '/usr/sbin/odhcpd-update'
+	option loglevel '4'
+
+config host
+	option name 'Sony-TV'
+	option dns '1'
+	option mac '44:e4:ee:d2:9f:25'
+	option ip '192.168.0.180'
+	option leasetime 'infinite'
+	option tag 'proxy'
+
+config host
+	option dns '1'
+	option mac '64:90:c1:14:18:e9'
+	option ip '192.168.0.108'
+	option leasetime 'infinite'
+	option name 'Mi-ROCK'
+
+config host
+	option dns '1'
+	option mac '58:b6:23:ce:f7:95'
+	option leasetime 'infinite'
+	option name 'Mi-CFZB'
+	option ip '192.168.0.171'
+
+config host
+	option dns '1'
+	option mac 'ec:41:18:b1:e2:6d'
+	option ip '192.168.0.163'
+	option name 'Mi-KTXA'
+	option leasetime 'infinite'
+
+config host
+	option name 'Mi-KTWG'
+	option dns '1'
+	option mac '5c:e5:0c:c4:33:88'
+	option ip '192.168.0.122'
+	option leasetime 'infinite'
+
+config host
+	option name 'Mi-ZWXA'
+	option dns '1'
+	option mac 'ec:41:18:b1:e9:0e'
+	option ip '192.168.0.61'
+	option leasetime 'infinite'
+
+config host
+	option name 'Mi-KWWG'
+	option dns '1'
+	option mac '5c:e5:0c:c4:36:56'
+	option ip '192.168.0.67'
+	option leasetime 'infinite'
+
+config host
+	option name 'Sony-Audio'
+	option dns '1'
+	option mac 'e0:37:bf:e2:3d:3f'
+	option ip '192.168.0.206'
+	option leasetime 'infinite'
+
+config host
+	option dns '1'
+	option mac '04:cf:8c:1d:f0:4f'
+	option name 'Mi-KTKT'
+	option leasetime 'infinite'
+	option ip '192.168.0.211'
+
+config host
+	option name 'Mi-Camera'
+	option dns '1'
+	option mac '50:ec:50:58:6a:2d'
+	option ip '192.168.0.169'
+	option leasetime 'infinite'
+
+config host
+	option name 'Mi-KWXA'
+	option dns '1'
+	option mac '8c:53:c3:7a:02:87'
+	option ip '192.168.0.101'
+	option leasetime 'infinite'
+
+config host
+	option name 'Mi-ZWKT'
+	option dns '1'
+	option mac '5c:e5:0c:37:b9:7b'
+	option ip '192.168.0.168'
+	option leasetime 'infinite'
+
+config host
+	option name 'Mi-CFYJ'
+	option dns '1'
+	option mac '40:31:3c:77:ac:0d'
+	option ip '192.168.0.87'
+	option leasetime 'infinite'
+
+config host
+	option name 'Mi-ZWSL'
+	option dns '1'
+	option mac '44:23:7c:f6:5f:ed'
+	option ip '192.168.0.73'
+	option leasetime 'infinite'
+
+config host
+	option name 'Mi-KTDD'
+	option dns '1'
+	option mac '44:23:7c:38:7e:71'
+	option ip '192.168.0.64'
+	option leasetime 'infinite'
+
+config host
+	option name 'Mi-RHXA'
+	option dns '1'
+	option mac '8c:53:c3:aa:d9:c7'
+	option ip '192.168.0.192'
+	option leasetime 'infinite'
+
+config host
+	option name 'Mi-YTDD'
+	option dns '1'
+	option mac '44:23:7c:38:60:08'
+	option ip '192.168.0.189'
+	option leasetime 'infinite'
+
+config host
+	option name 'Mi-RHMY'
+	option dns '1'
+	option mac 'e4:15:f6:ff:22:24'
+	option ip '192.168.0.200'
+	option leasetime 'infinite'
+
+config host
+	option name 'Htt-YTYJ'
+	option dns '1'
+	option mac '98:d8:63:b4:9d:30'
+	option ip '192.168.0.230'
+	option leasetime 'infinite'
+
+config host
+	option name 'Mi-ZWDD'
+	option dns '1'
+	option mac '44:23:7c:38:66:b0'
+	option ip '192.168.0.151'
+	option leasetime 'infinite'
+
+config host
+	option name 'Mi-KTCL'
+	option dns '1'
+	option mac '44:23:7c:f6:5f:68'
+	option leasetime 'infinite'
+	option ip '192.168.0.142'
+
+config host
+	option name 'Mi-KTGXJ'
+	option dns '1'
+	option mac '40:31:3c:c0:0d:39'
+	option leasetime 'infinite'
+	option ip '192.168.0.205'
+
+config host
+	option name 'Mi-ZWCL'
+	option dns '1'
+	option mac '44:23:7c:f6:5f:36'
+	option ip '192.168.0.90'
+	option leasetime 'infinite'
+
+config host
+	option name 'Mi-KTSL'
+	option dns '1'
+	option mac '44:23:7c:f6:5e:c6'
+	option ip '192.168.0.235'
+	option leasetime 'infinite'
+
+config host
+	option dns '1'
+	option mac 'ee:a8:8f:05:74:cd'
+	option ip '192.168.0.252'
+	option leasetime 'infinite'
+	option name 'PVE-Win7'
+
+config host
+	option name 'PVE-Virtual'
+	option dns '1'
+	option mac 'a0:36:9f:8a:a7:3b'
+	option ip '192.168.0.253'
+	option leasetime 'infinite'
+
+config host
+	option name 'iPadMini5'
+	option dns '1'
+	option mac '9c:64:8b:f2:c4:f9'
+	option ip '192.168.0.70'
+	option leasetime 'infinite'
+
+config host
+	option name 'Jarod-Miix5'
+	option dns '1'
+	option mac 'a0:c5:89:b5:65:17'
+	option ip '192.168.0.197'
+	option leasetime 'infinite'
+
+config host
+	option name 'Yanan-iPhone'
+	option dns '1'
+	option mac '8c:86:1e:a0:40:d9'
+	option ip '192.168.0.152'
+	option leasetime 'infinite'
+
+config host
+	option name 'Mi-KTJSQ'
+	option dns '1'
+	option mac '50:ec:50:ad:85:79'
+	option ip '192.168.0.143'
+	option leasetime 'infinite'
+
+config host
+	option name 'Mi-KWJSQ'
+	option dns '1'
+	option mac '50:ec:50:ad:86:ae'
+	option ip '192.168.0.195'
+	option leasetime 'infinite'
+
+config host
+	option name 'iPadMini6'
+	option dns '1'
+	option mac '08:ff:44:65:75:8b'
+	option leasetime 'infinite'
+	option ip '192.168.0.123'
+	option tag 'proxy'
+
+config host
+	option name 'HP-Printer'
+	option dns '1'
+	option mac 'd4:6a:6a:9d:cd:c2'
+	option leasetime 'infinite'
+
+config host
+	option name 'AirWater'
+	option dns '1'
+	option mac '98:cd:ac:bc:3a:f0'
+	option leasetime 'infinite'
+
+config host
+	option name 'OfficePC'
+	option dns '1'
+	option mac 'd4:6a:6a:9a:cc:7d'
+	option leasetime 'infinite'
+
+config host
+	option name 'Rog-WiFi'
+	option dns '1'
+	option mac '38:00:25:15:dd:ee'
+	option ip '192.168.0.115'
+	option leasetime 'infinite'
+	option tag 'proxy'
+
+config host
+	option name 'iQOO-11S'
+	option dns '1'
+	option mac '96:66:c1:b9:6e:66'
+	option ip '192.168.0.102'
+	option leasetime 'infinite'
+	option tag 'proxy'
+
