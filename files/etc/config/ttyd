@@ -1,0 +1,18 @@
+
+config server 'server'
+	option port '7681'
+	option check_origin '0'
+	option max_clients '10'
+	option readonly '0'
+	option debug '1 2 4 8'
+	option credential '0'
+	option ssl '1'
+	option ssl_cert '/etc/luci-uploads/cbid.uhttpd.main.cert'
+	option ssl_key '/etc/luci-uploads/cbid.uhttpd.main.key'
+
+config ssl 'ssl'
+	option days '730'
+	option bits '2048'
+	option country 'CN'
+	option commonname 'Openwrt.lan'
+
