@@ -44,7 +44,7 @@ sed -i 's/IMG_PREFIX:=$(VERSION_DIST_SANITIZED)/IMG_PREFIX:=360V6-$(shell TZ=UTC
 #加载ipk
 git clone https://github.com/jarod360/luci-app-ttyd package/luci-app-ttyd
 git clone https://github.com/jarod360/packages package/mypackge
-git clone -b openwrt-18.06 https://github.com/tty228/luci-app-wechatpush.git packge/luci-app-serverchan
+git clone -b openwrt-18.06 https://github.com/tty228/luci-app-wechatpush.git package/luci-app-serverchan
 git clone https://github.com/jarod360/luci-app-xupnpd package/luci-app-xupnpd
 git clone https://github.com/jarod360/luci-app-msd_lite package/luci-app-msd_lite
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
