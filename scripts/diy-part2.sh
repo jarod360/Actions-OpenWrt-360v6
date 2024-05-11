@@ -19,6 +19,7 @@ rm -rf feeds/luci/applications/luci-app-serverchan
 rm -rf feeds/luci/themes/luci-theme-argon
 rm -rf feeds/luci/applications/luci-app-msd_lite
 rm -rf feeds/packages/net/msd_lite
+rm -rf feeds/luci/applications/luci-app-serverchan
 
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.0.254/g' package/base-files/files/bin/config_generate
