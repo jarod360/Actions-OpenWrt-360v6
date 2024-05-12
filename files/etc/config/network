@@ -49,13 +49,12 @@ config interface 'IPTV'
 	option auto '1'
 	option delegate '0'
 
-
 config interface 'Cat'
 	option _orig_ifname 'eth3'
 	option _orig_bridge 'false'
-	option ifname 'br-lan.2'
 	option proto 'static'
-	option ipaddr '192.168.1.100'
-	option netmask '255.255.255.0'
 	option delegate '0'
+	option netmask '255.255.255.0'
+	option ifname 'br-lan.2'
+	option ipaddr '192.168.1.100'
 
