@@ -19,7 +19,6 @@ config dnsmasq
 	option localuse '1'
 	option filter_aaaa '1'
 	option quietdhcp '1'
-	option noresolv '0'
 
 config dhcp 'lan'
 	option interface 'lan'
@@ -302,4 +301,10 @@ config host
 	option ip '192.168.0.102'
 	option leasetime 'infinite'
 	option tag 'proxy'
+
+config host
+	option name 'iPad-Pigbaby'
+	option dns '1'
+	option mac '66:c0:a5:12:39:71'
+	option leasetime 'infinite'
 
