@@ -49,17 +49,13 @@ config interface 'IPTV'
 	option auto '1'
 	option delegate '0'
 
-config route
-	option target '192.168.1.1'
-	option gateway '192.168.1.107'
-	option interface 'Cat'
 
 config interface 'Cat'
 	option _orig_ifname 'eth3'
 	option _orig_bridge 'false'
 	option ifname 'br-lan.2'
 	option proto 'static'
-	option ipaddr '192.168.1.107'
+	option ipaddr '192.168.1.100'
 	option netmask '255.255.255.0'
 	option delegate '0'
 
