@@ -19,6 +19,7 @@ rm -rf feeds/luci/applications/luci-app-serverchan
 rm -rf feeds/luci/themes/luci-theme-argon
 rm -rf feeds/luci/applications/luci-app-msd_lite
 rm -rf feeds/packages/net/msd_lite
+rm -rf feeds/packages/multimedia/xupnpd/
 rm -rf feeds/luci/applications/luci-app-serverchan
 rm -rf feeds/kenzo/luci-app-wechatpush
 
@@ -57,6 +58,7 @@ git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luc
 curl -L -o msd_lite.tar.gz https://github.com/coolsnowwolf/packages/archive/master.tar.gz
 tar -xzf msd_lite.tar.gz
 mv packages-master/net/msd_lite/ package/msd_lite
+mv packages-master/multimedia/xupnpd/ package/xupnpd
 rm msd_lite.tar.gz
 
 # 调整argon登录框为居中
