@@ -57,7 +57,7 @@ git clone https://github.com/jarod360/luci-app-msd_lite package/luci-app-msd_lit
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
 curl -L -o msd_lite.tar.gz https://github.com/coolsnowwolf/packages/archive/master.tar.gz
 tar -xzf msd_lite.tar.gz
-mv packages-master/net/msd_lite/ package/msd_lite
+#mv packages-master/net/msd_lite/ package/msd_lite
 mv packages-master/multimedia/xupnpd/ package/xupnpd
 rm msd_lite.tar.gz
 
