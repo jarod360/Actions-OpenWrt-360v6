@@ -24,7 +24,7 @@ rm -rf feeds/luci/applications/luci-app-serverchan
 rm -rf feeds/kenzo/luci-app-wechatpush
 
 # 修改版本信息
-date=`date +%Y.%m.%d`
+date=`date +%y.%m.%d`
 sed -i 's/OpenWrt/OpenWrt Build '$date' By Jarod/g' package/addition/default-settings/files/99-default-settings
 sed -i 's/R23.11.20/R24.05.01/g' package/addition/default-settings/files/99-default-settings
 # 修改插件名字
