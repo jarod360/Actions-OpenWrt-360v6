@@ -23,17 +23,29 @@ rm -rf feeds/packages/net/msd_lite
 rm -rf feeds/packages/multimedia/xupnpd/
 rm -rf feeds/luci/applications/luci-app-serverchan
 rm -rf feeds/kenzo/luci-app-wechatpush
+rm -rf feeds/small/chinadns-ng
+rm -rf feeds/kenzo/luci-app-alist
 
 #修改alist分类
-sed -i 's/+alist //g' feeds/kenzo/luci-app-alist/Makefile
-sed -i 's/nas/services/g' feeds/kenzo/luci-app-alist/luasrc/controller/alist.lua
-sed -i 's/NAS/Services/g' feeds/kenzo/luci-app-alist/luasrc/controller/alist.lua
-sed -i 's/nas/services/g' feeds/kenzo/luci-app-alist/luasrc/controller/alist.lua
-sed -i 's/nas/services/g' feeds/kenzo/luci-app-alist/luasrc/view/alist/admin_info.htm
-sed -i 's/nas/services/g' feeds/kenzo/luci-app-alist/luasrc/view/alist/alist_log.htm
-sed -i 's/nas/services/g' feeds/kenzo/luci-app-alist/luasrc/view/alist/alist_status.htm
-sed -i 's/Alist 文件列表/Alist小雅/g' feeds/kenzo/luci-app-alist/po/zh-cn/alist.po
-sed -i 's|rm -rf /tmp/luci-*|rm -rf /tmp/luci-* && rm -f /etc/init.d/alist|g' feeds/kenzo/luci-app-alist/root/etc/uci-defaults/50-luci-alist
+curl -L -o alist.tar.gz https://github.com/kenzok8/openwrt-packages/archive/master.tar.gz
+tar -xzf alist.tar.gz
+mv packages-master/luci-app-alist/ package/luci-app-alist
+rm alist.tar.gz
+sed -i 's/+alist //g' package/luci-app-alist/Makefile
+sed -i 's/nas/services/g' package/luci-app-alist/luasrc/controller/alist.lua
+sed -i 's/NAS/Services/g' package/luci-app-alist/luasrc/controller/alist.lua
+sed -i 's/nas/services/g' package/luci-app-alist/luasrc/controller/alist.lua
+sed -i 's/nas/services/g' package/luci-app-alist/luasrc/view/alist/admin_info.htm
+sed -i 's/nas/services/g' package/luci-app-alist/luasrc/view/alist/alist_log.htm
+sed -i 's/nas/services/g' package/luci-app-alist/luasrc/view/alist/alist_status.htm
+sed -i 's/Alist 文件列表/Alist小雅/g' package/luci-app-alist/po/zh-cn/alist.po
+sed -i 's|rm -rf /tmp/luci-*|rm -rf /tmp/luci-* && rm -f /etc/init.d/alist|g' package/luci-app-alist/root/etc/uci-defaults/50-luci-alist
+
+#更新chinadns-ng
+curl -L -o chinadns-ng.tar.gz https://github.com/kenzok8/small/archive/master.tar.gz
+tar -xzf chinadns-ng.tar.gz
+mv packages-master/chinadns-ng/ package/chinadns-ng
+rm chinadns-ng.tar.gz
 
 # 修改版本信息
 date=`date +%y.%m.%d`
