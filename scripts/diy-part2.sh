@@ -40,7 +40,7 @@ sed -i 's/OpenWrt/OpenWrt Build '$date' By Jarod/g' package/addition/default-set
 sed -i 's/R23.11.20/R24.05.01/g' package/addition/default-settings/files/99-default-settings
 
 #修改设备型号
-sed -i 's/Qihoo V6/Qihoo Router 360V6/g' /target/linux/ipq60xx/image/Makefile
+sed -i 's/Qihoo V6/Qihoo 360V6/g' target/linux/ipq60xx/image/Makefile
 
 # 修改插件名字
 sed -i 's/"网络存储"/"存储"/g' `grep "网络存储" -rl ./`
