@@ -33,7 +33,7 @@ sed -i 's/nas/services/g' feeds/kenzo/luci-app-alist/luasrc/view/alist/admin_inf
 sed -i 's/nas/services/g' feeds/kenzo/luci-app-alist/luasrc/view/alist/alist_log.htm
 sed -i 's/nas/services/g' feeds/kenzo/luci-app-alist/luasrc/view/alist/alist_status.htm
 sed -i 's/Alist 文件列表/Alist小雅/g' feeds/kenzo/luci-app-alist/po/zh-cn/alist.po
-sed -i 's|rm -rf /tmp/luci-*|rm -rf /tmp/luci-* \&\& rm -f /etc/init.d/alist|g' feeds/kenzo/luci-app-alist/root/etc/uci-defaults/50-luci-alist
+sed -i 's|rm -rf /tmp/luci-*|rm -rf /tmp/luci-* && rm -f /etc/init.d/alist|g' feeds/kenzo/luci-app-alist/root/etc/uci-defaults/50-luci-alist
 
 # 修改版本信息
 date=`date +%y.%m.%d`
