@@ -32,6 +32,7 @@ sed -i 's/nas/services/g' feeds/kenzo/luci-app-alist/luasrc/view/alist/admin_inf
 sed -i 's/nas/services/g' feeds/kenzo/luci-app-alist/luasrc/view/alist/alist_log.htm
 sed -i 's/nas/services/g' feeds/kenzo/luci-app-alist/luasrc/view/alist/alist_status.htm
 sed -i 's/Alist 文件列表/Alist小雅/g' feeds/kenzo/luci-app-alist/po/zh-cn/alist.po
+
 # 修改版本信息
 date=`date +%y.%m.%d`
 sed -i 's/OpenWrt/OpenWrt Build '$date' By Jarod/g' package/addition/default-settings/files/99-default-settings
@@ -69,6 +70,9 @@ tar -xzf msd_lite.tar.gz
 #mv packages-master/net/msd_lite/ package/msd_lite
 mv packages-master/multimedia/xupnpd/ package/xupnpd
 rm msd_lite.tar.gz
+
+#去除serverchan无效检测网址
+sed -i 's/https://www.baidu.com https://www.qidian.com https://www.douban.com/https://www.baidu.com/g' package/luci-app-serverchan/root/usr/share/serverchan/serverchan
 
 # 调整argon登录框为居中
 sed -i "/.login-page {/i\\
