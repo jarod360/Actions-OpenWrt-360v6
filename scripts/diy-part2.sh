@@ -29,7 +29,7 @@ rm -rf feeds/kenzo/luci-app-alist
 #修改alist分类
 curl -L -o alist.tar.gz https://github.com/kenzok8/openwrt-packages/archive/master.tar.gz
 tar -xzf alist.tar.gz
-mv packages-master/luci-app-alist/ package/luci-app-alist
+mv openwrt-packages-master/luci-app-alist/ package/luci-app-alist
 rm alist.tar.gz
 sed -i 's/+alist //g' package/luci-app-alist/Makefile
 sed -i 's/nas/services/g' package/luci-app-alist/luasrc/controller/alist.lua
@@ -44,7 +44,7 @@ sed -i 's|rm -rf /tmp/luci-*|rm -rf /tmp/luci-* && rm -f /etc/init.d/alist|g' pa
 #更新chinadns-ng
 curl -L -o chinadns-ng.tar.gz https://github.com/kenzok8/small/archive/master.tar.gz
 tar -xzf chinadns-ng.tar.gz
-mv packages-master/chinadns-ng/ package/chinadns-ng
+mv small-master/chinadns-ng/ package/chinadns-ng
 rm chinadns-ng.tar.gz
 
 # 修改版本信息
