@@ -11,6 +11,7 @@
 #
 # rm -rf package/feeds/luci/luci-app-ssr-plus
 # rm -rf package/feeds/luci/luci-app-filetransfer
+
 #移除不用软件包  
 rm -rf feeds/packages/libs/libwebsockets
 rm -rf feeds/luci/applications/luci-app-ttyd
@@ -37,8 +38,10 @@ sed -i 's/Alist 文件列表/Alist小雅/g' feeds/kenzo/luci-app-alist/po/zh-cn/
 date=`date +%y.%m.%d`
 sed -i 's/OpenWrt/OpenWrt Build '$date' By Jarod/g' package/addition/default-settings/files/99-default-settings
 sed -i 's/R23.11.20/R24.05.01/g' package/addition/default-settings/files/99-default-settings
+
 # 修改插件名字
 sed -i 's/"网络存储"/"存储"/g' `grep "网络存储" -rl ./`
+
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.0.254/g' package/base-files/files/bin/config_generate
 
@@ -72,7 +75,7 @@ mv packages-master/multimedia/xupnpd/ package/xupnpd
 rm msd_lite.tar.gz
 
 #去除serverchan无效检测网址
-sed -i 's/https://www.baidu.com https://www.qidian.com https://www.douban.com/https://www.baidu.com/g' package/luci-app-serverchan/root/usr/share/serverchan/serverchan
+sed -i 's|https://www.baidu.com https://www.qidian.com https://www.douban.com|https://www.baidu.com|g' package/luci-app-serverchan/root/usr/share/serverchan/serverchan
 
 # 调整argon登录框为居中
 sed -i "/.login-page {/i\\
