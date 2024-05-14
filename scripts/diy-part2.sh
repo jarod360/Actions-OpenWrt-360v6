@@ -23,6 +23,15 @@ rm -rf feeds/packages/multimedia/xupnpd/
 rm -rf feeds/luci/applications/luci-app-serverchan
 rm -rf feeds/kenzo/luci-app-wechatpush
 
+#修改alist分类
+sed -i 's/+alist //g' feeds/kenzo/luci-app-alist/Makefile
+sed -i 's/nas/services/g' feeds/kenzo/luci-app-alist/luasrc/controller/alist.lua
+sed -i 's/NAS/Services/g' feeds/kenzo/luci-app-alist/luasrc/controller/alist.lua
+sed -i 's/nas/services/g' feeds/kenzo/luci-app-alist/luasrc/controller/alist.lua
+sed -i 's/nas/services/g' feeds/kenzo/luci-app-alist/luasrc/view/alist/admin_info.htm
+sed -i 's/nas/services/g' feeds/kenzo/luci-app-alist/luasrc/view/alist/alist_log.htm
+sed -i 's/nas/services/g' feeds/kenzo/luci-app-alist/luasrc/view/alist/alist_status.htm
+sed -i 's/Alist 文件列表/Alist小雅/g' feeds/kenzo/luci-app-alist/po/zh-cn/alist.po
 # 修改版本信息
 date=`date +%y.%m.%d`
 sed -i 's/OpenWrt/OpenWrt Build '$date' By Jarod/g' package/addition/default-settings/files/99-default-settings
