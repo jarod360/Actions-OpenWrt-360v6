@@ -9,8 +9,6 @@
 # This is free software, licensed under the MIT License.
 # See /LICENSE for more information.
 #
-# rm -rf package/feeds/luci/luci-app-ssr-plus
-# rm -rf package/feeds/luci/luci-app-filetransfer
 
 #移除不用软件包  
 rm -rf feeds/packages/libs/libwebsockets
@@ -52,8 +50,6 @@ date=`date +%y.%m.%d`
 sed -i 's/OpenWrt/OpenWrt By Jarod /g' package/addition/default-settings/files/99-default-settings
 sed -i 's/R23.11.20/R'$date'/g' package/addition/default-settings/files/99-default-settings
 
-#修改设备型号
-#sed -i 's/Qihoo V6/Qihoo 360V6/g' target/linux/ipq60xx/image/Makefile
 
 # 修改插件名字
 sed -i 's/"网络存储"/"存储"/g' `grep "网络存储" -rl ./`
