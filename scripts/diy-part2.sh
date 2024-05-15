@@ -49,8 +49,8 @@ rm chinadns-ng.tar.gz
 
 # 修改版本信息
 date=`date +%y.%m.%d`
-sed -i 's/OpenWrt/OpenWrt '$date' By Jarod/g' package/addition/default-settings/files/99-default-settings
-sed -i 's/R23.11.20/R24.05.01/g' package/addition/default-settings/files/99-default-settings
+sed -i 's/OpenWrt/OpenWrt By Jarod /g' package/addition/default-settings/files/99-default-settings
+sed -i 's/R23.11.20/R'$date'/g' package/addition/default-settings/files/99-default-settings
 
 #修改设备型号
 #sed -i 's/Qihoo V6/Qihoo 360V6/g' target/linux/ipq60xx/image/Makefile
