@@ -13,9 +13,9 @@
 #移除不用软件包  
 rm -rf feeds/luci/applications/luci-app-ttyd
 rm -rf feeds/luci/applications/luci-app-serverchan
-rm -rf feeds/luci/themes/luci-theme-argon
 rm -rf feeds/luci/applications/luci-app-msd_lite
 rm -rf feeds/luci/applications/luci-app-serverchan
+rm -rf feeds/luci/themes/luci-theme-argon
 rm -rf feeds/packages/libs/libwebsockets
 rm -rf feeds/packages/utils/ttyd
 rm -rf feeds/packages/net/msd_lite
