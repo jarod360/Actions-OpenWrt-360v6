@@ -72,7 +72,6 @@ git_sparse_clone master https://github.com/kenzok8/openwrt-packages luci-app-ali
 sed -i 's/+alist //g' package/luci-app-alist/Makefile
 sed -i 's/nas/services/g' package/luci-app-alist/luasrc/controller/alist.lua
 sed -i 's/NAS/Services/g' package/luci-app-alist/luasrc/controller/alist.lua
-sed -i 's/nas/services/g' package/luci-app-alist/luasrc/controller/alist.lua
 sed -i 's/nas/services/g' package/luci-app-alist/luasrc/view/alist/admin_info.htm
 sed -i 's/nas/services/g' package/luci-app-alist/luasrc/view/alist/alist_log.htm
 sed -i 's/nas/services/g' package/luci-app-alist/luasrc/view/alist/alist_status.htm
