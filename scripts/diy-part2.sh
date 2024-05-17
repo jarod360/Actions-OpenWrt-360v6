@@ -24,32 +24,13 @@ rm -rf feeds/kenzo/luci-app-wechatpush
 rm -rf feeds/small/chinadns-ng
 rm -rf feeds/kenzo/luci-app-alist
 
-#修改alist分类
-curl -L -o alist.tar.gz https://github.com/kenzok8/openwrt-packages/archive/master.tar.gz
-tar -xzf alist.tar.gz
-mv openwrt-packages-master/luci-app-alist/ package/luci-app-alist
-rm alist.tar.gz
-sed -i 's/+alist //g' package/luci-app-alist/Makefile
-sed -i 's/nas/services/g' package/luci-app-alist/luasrc/controller/alist.lua
-sed -i 's/NAS/Services/g' package/luci-app-alist/luasrc/controller/alist.lua
-sed -i 's/nas/services/g' package/luci-app-alist/luasrc/controller/alist.lua
-sed -i 's/nas/services/g' package/luci-app-alist/luasrc/view/alist/admin_info.htm
-sed -i 's/nas/services/g' package/luci-app-alist/luasrc/view/alist/alist_log.htm
-sed -i 's/nas/services/g' package/luci-app-alist/luasrc/view/alist/alist_status.htm
-sed -i 's/Alist 文件列表/Alist 小雅/g' package/luci-app-alist/po/zh-cn/alist.po
-sed -i 's|rm -rf /tmp/luci-*|rm -rf /tmp/luci-* && rm -f /etc/init.d/alist|g' package/luci-app-alist/root/etc/uci-defaults/50-luci-alist
-
-#更新chinadns-ng
-curl -L -o chinadns-ng.tar.gz https://github.com/kenzok8/small/archive/master.tar.gz
-tar -xzf chinadns-ng.tar.gz
-mv small-master/chinadns-ng/ package/chinadns-ng
-rm chinadns-ng.tar.gz
-
 # 修改版本信息
 date=`date +%y.%m.%d`
 sed -i 's/OpenWrt/OpenWrt By Jarod /g' package/addition/default-settings/files/99-default-settings
 sed -i 's/R23.11.20/R'$date'/g' package/addition/default-settings/files/99-default-settings
 
+# 修改本地时间格式
+sed -i 's/os.date()/os.date("%a %Y-%m-%d %H:%M:%S")/g' package/addition/autocore/files/*/index.htm
 
 # 修改插件名字
 sed -i 's/"网络存储"/"存储"/g' `grep "网络存储" -rl ./`
@@ -73,18 +54,37 @@ sed -i 's/IMG_PREFIX:=$(VERSION_DIST_SANITIZED)/IMG_PREFIX:=360V6-$(shell TZ=UTC
 # Modify hostname
 #sed -i 's/OpenWrt/P3TERX-Router/g' package/base-files/files/bin/config_generate
 
-#加载ipk
-git clone https://github.com/jarod360/luci-app-ttyd package/luci-app-ttyd
-git clone https://github.com/jarod360/packages package/mypackge
-git clone -b openwrt-18.06 https://github.com/tty228/luci-app-wechatpush.git package/luci-app-serverchan
-git clone https://github.com/jarod360/luci-app-xupnpd package/luci-app-xupnpd
-git clone https://github.com/jarod360/luci-app-msd_lite package/luci-app-msd_lite
-git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
-curl -L -o msd_lite.tar.gz https://github.com/coolsnowwolf/packages/archive/master.tar.gz
-tar -xzf msd_lite.tar.gz
-#mv packages-master/net/msd_lite/ package/msd_lite
-mv packages-master/multimedia/xupnpd/ package/xupnpd
-rm msd_lite.tar.gz
+# Git稀疏克隆，只克隆指定目录到本地
+function git_sparse_clone() {
+  branch="$1" repourl="$2" && shift 2
+  git clone --depth=1 -b $branch --single-branch --filter=blob:none --sparse $repourl
+  repodir=$(echo $repourl | awk -F '/' '{print $(NF)}')
+  cd $repodir && git sparse-checkout set $@
+  mv -f $@ ../package
+  cd .. && rm -rf $repodir
+}
+
+#添加额外插件
+git clone --depth=1 https://github.com/jarod360/luci-app-ttyd package/luci-app-ttyd
+git clone --depth=1 https://github.com/jarod360/packages package/mypackge
+git clone --depth=1 -b openwrt-18.06 https://github.com/tty228/luci-app-wechatpush.git package/luci-app-serverchan
+git clone --depth=1 https://github.com/jarod360/luci-app-xupnpd package/luci-app-xupnpd
+git clone --depth=1 https://github.com/jarod360/luci-app-msd_lite package/luci-app-msd_lite
+git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
+git_sparse_clone master https://github.com/coolsnowwolf/packages net/msd_lite multimedia/xupnpd
+git_sparse_clone master https://github.com/kenzok8/small chinadns-ng
+git_sparse_clone master https://github.com/kenzok8/openwrt-packages luci-app-alist
+
+#调整alist到服务菜单及修改名称
+sed -i 's/+alist //g' package/luci-app-alist/Makefile
+sed -i 's/nas/services/g' package/luci-app-alist/luasrc/controller/alist.lua
+sed -i 's/NAS/Services/g' package/luci-app-alist/luasrc/controller/alist.lua
+sed -i 's/nas/services/g' package/luci-app-alist/luasrc/controller/alist.lua
+sed -i 's/nas/services/g' package/luci-app-alist/luasrc/view/alist/admin_info.htm
+sed -i 's/nas/services/g' package/luci-app-alist/luasrc/view/alist/alist_log.htm
+sed -i 's/nas/services/g' package/luci-app-alist/luasrc/view/alist/alist_status.htm
+sed -i 's/Alist 文件列表/Alist 小雅/g' package/luci-app-alist/po/zh-cn/alist.po
+sed -i 's|rm -rf /tmp/luci-*|rm -rf /tmp/luci-* && rm -f /etc/init.d/alist|g' package/luci-app-alist/root/etc/uci-defaults/50-luci-alist
 
 #去除serverchan无效检测网址
 sed -i 's|https://www.baidu.com https://www.qidian.com https://www.douban.com|https://www.baidu.com|g' package/luci-app-serverchan/root/usr/share/serverchan/serverchan
