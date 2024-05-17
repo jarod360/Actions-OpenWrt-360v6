@@ -11,17 +11,17 @@
 #
 
 #移除不用软件包  
-rm -rf feeds/packages/libs/libwebsockets
 rm -rf feeds/luci/applications/luci-app-ttyd
-rm -rf feeds/packages/utils/ttyd
 rm -rf feeds/luci/applications/luci-app-serverchan
 rm -rf feeds/luci/themes/luci-theme-argon
 rm -rf feeds/luci/applications/luci-app-msd_lite
-rm -rf feeds/packages/net/msd_lite
-rm -rf feeds/packages/multimedia/xupnpd/
 rm -rf feeds/luci/applications/luci-app-serverchan
-rm -rf feeds/kenzo/luci-app-wechatpush
+rm -rf feeds/packages/libs/libwebsockets
+rm -rf feeds/packages/utils/ttyd
+rm -rf feeds/packages/net/msd_lite
+rm -rf feeds/packages/multimedia/xupnpd
 rm -rf feeds/small/chinadns-ng
+rm -rf feeds/kenzo/luci-app-wechatpush
 rm -rf feeds/kenzo/luci-app-alist
 
 # 修改版本为编译日期
@@ -41,15 +41,8 @@ sed -i 's/192.168.1.1/192.168.0.254/g' package/base-files/files/bin/config_gener
 #　web登陆密码从password修改为空
 # sed -i 's/root:$1$V4UetPzk$CYXluq4wUazHjmCDBCqXF.:0:0:99999:7:::/root::0:0:99999:7:::/g' package/extra/default-settings/files/99-default-settings
 
-#　固件版本号添加个人标识和日期
-#sed -i "s/DISTRIB_DESCRIPTION='OpenWrt '/DISTRIB_DESCRIPTION='Jarod(\$\(TZ=UTC-8 date +%Y-%m-%d\))@OpenWrt '/g" package/extra/default-settings/files/99-default-settings
-
 #　编译的固件文件名添加日期
 sed -i 's/IMG_PREFIX:=$(VERSION_DIST_SANITIZED)/IMG_PREFIX:=360V6-$(shell TZ=UTC-8 date "+%Y%m%d")-$(VERSION_DIST_SANITIZED)/g' include/image.mk
-
-
-# Modify default theme
-# sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
 
 # Modify hostname
 #sed -i 's/OpenWrt/P3TERX-Router/g' package/base-files/files/bin/config_generate
