@@ -34,6 +34,10 @@ sed -i 's/os.date()/os.date("%a %Y-%m-%d %H:%M:%S")/g' package/addition/autocore
 # 修改插件名字
 sed -i 's/"网络存储"/"存储"/g' `grep "网络存储" -rl ./`
 
+# 把局域网内所有客户端对外ipv4的53端口查询请求，都劫持指向路由器(iptables -n -t nat -L PREROUTING -v --line-number)(iptables -t nat -D PREROUTING 2)
+echo 'iptables -t nat -A PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 53' >> package/network/config/firewall/files/firewall.user
+echo 'iptables -t nat -A PREROUTING -p tcp --dport 53 -j REDIRECT --to-ports 53' >> package/network/config/firewall/files/firewall.user
+
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.0.254/g' package/base-files/files/bin/config_generate
 
