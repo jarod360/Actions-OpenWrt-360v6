@@ -28,6 +28,10 @@ date_version=$(date +"%y.%m.%d")
 orig_version=$(cat "package/addition/default-settings/files/99-default-settings" | grep DISTRIB_REVISION= | awk -F "'" '{print $2}')
 sed -i "s/${orig_version}/R${date_version} by Jarod/g" package/addition/default-settings/files/99-default-settings
 
+#修改alist、sing-box可执行权限
+echo 'chmod +x /usr/bin/alist' >> package/addition/default-settings/files/99-default-settings
+echo 'chmod +x /usr/bin/sing-box' >> package/addition/default-settings/files/99-default-settings
+
 # 修改本地时间格式
 sed -i 's/os.date()/os.date("%a %Y-%m-%d %H:%M:%S")/g' package/addition/autocore/files/*/index.htm
 
@@ -79,7 +83,7 @@ sed -i 's/nas/services/g' package/luci-app-alist/luasrc/view/alist/admin_info.ht
 sed -i 's/nas/services/g' package/luci-app-alist/luasrc/view/alist/alist_log.htm
 sed -i 's/nas/services/g' package/luci-app-alist/luasrc/view/alist/alist_status.htm
 sed -i 's/Alist 文件列表/Alist/g' package/luci-app-alist/po/zh-cn/alist.po
-sed -i 's|rm -rf /tmp/luci-*|rm -rf /tmp/luci-* && rm -f /etc/init.d/alist|g' package/luci-app-alist/root/etc/uci-defaults/50-luci-alist
+#sed -i 's|rm -rf /tmp/luci-*|rm -rf /tmp/luci-* && rm -f /etc/init.d/alist|g' package/luci-app-alist/root/etc/uci-defaults/50-luci-alist
 
 #去除serverchan无效检测网址
 sed -i 's|https://www.baidu.com https://www.qidian.com https://www.douban.com|https://www.baidu.com|g' package/luci-app-serverchan/root/usr/share/serverchan/serverchan
