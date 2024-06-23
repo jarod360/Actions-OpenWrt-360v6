@@ -17,8 +17,8 @@ on:
   workflow_dispatch:
 
 env:
-  REPO_URL: https://github.com/King-Of-Knights/openwrt-6.x
-  REPO_BRANCH: main
+  REPO_URL: https://github.com/sendlan/ipq6000-wifi
+  REPO_BRANCH: wifi
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: ./config/360v6.config
   DIY_P1_SH: ./scripts/diy-part1.sh
