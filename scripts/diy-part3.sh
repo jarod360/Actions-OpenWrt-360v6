@@ -11,6 +11,7 @@
 #
 
 #移除不用软件包  
+rm -rf feeds/luci/applications/luci-app-alist
 rm -rf feeds/luci/applications/luci-app-ttyd
 rm -rf feeds/luci/applications/luci-app-msd_lite
 rm -rf feeds/luci/applications/luci-app-serverchan
@@ -19,7 +20,7 @@ rm -rf feeds/packages/libs/libwebsockets
 rm -rf feeds/packages/utils/ttyd
 rm -rf feeds/packages/net/msd_lite
 rm -rf feeds/packages/multimedia/xupnpd
-rm -rf feeds/small/chinadns-ng
+rm -rf feeds/packages/net/chinadns-ng
 rm -rf feeds/kenzo/luci-app-wechatpush
 rm -rf feeds/kenzo/luci-app-alist
 
