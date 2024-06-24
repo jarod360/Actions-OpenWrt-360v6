@@ -22,7 +22,8 @@ rm -rf feeds/packages/net/msd_lite
 rm -rf feeds/packages/multimedia/xupnpd
 rm -rf feeds/packages/net/chinadns-ng
 rm -rf feeds/kenzo/luci-app-wechatpush
-rm -rf feeds/kenzo/luci-app-alist
+rm -rf feeds/packages/net/alist
+
 
 # 修改版本为编译日期
 date_version=$(date +"%y.%m.%d")
