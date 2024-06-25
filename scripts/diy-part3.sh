@@ -139,3 +139,6 @@ sed -i "/.login-page {/i\\
   bottom: 0\!important;\n\
 }" package/luci-theme-argon/htdocs/luci-static/argon/css/cascade.css
 sed -i "s/margin-left: 0rem \!important;/margin-left: auto\!important;/g" package/luci-theme-argon/htdocs/luci-static/argon/css/cascade.css
+#更新安装feeds
+./scripts/feeds update -a
+./scripts/feeds install -a
