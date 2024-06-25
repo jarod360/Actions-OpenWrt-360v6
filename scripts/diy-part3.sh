@@ -22,7 +22,22 @@ rm -rf feeds/packages/multimedia/xupnpd
 rm -rf feeds/small/chinadns-ng
 rm -rf feeds/kenzo/luci-app-wechatpush
 rm -rf feeds/kenzo/luci-app-alist
-
+rm -rf feeds/packages/glib2
+rm -rf feeds/luci/luci-app-brook-server
+rm -rf feeds/luci/luci-app-mwan3helper
+rm -rf feeds/luci/luci-app-naiveproxy
+rm -rf feeds/luci/luci-app-qosv4
+rm -rf feeds/luci/luci-app-samba
+rm -rf feeds/luci/luci-app-ssocks
+rm -rf feeds/luci/luci-app-ssr-libev-server
+rm -rf feeds/luci/luci-app-ssr-plus
+rm -rf feeds/luci/luci-app-trojan-server
+rm -rf feeds/luci/luci-app-turboacc
+rm -rf feeds/luci/luci-app-v2ray-server
+rm -rf feeds/luci/luci-app-vssr
+rm -rf feeds/packages/softethervpn
+rm -rf feeds/packages/sqm-scripts
+rm -rf feeds/packages/v2raya
 
 # 修改版本为编译日期
 date_version=$(date +"%y.%m.%d")
