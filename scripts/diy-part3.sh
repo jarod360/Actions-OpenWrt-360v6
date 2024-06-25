@@ -11,6 +11,7 @@
 #
 
 #移除不用软件包  
+rm -rf feeds/luci/applications/luci-app-alist
 rm -rf feeds/luci/applications/luci-app-ttyd
 rm -rf feeds/luci/applications/luci-app-msd_lite
 rm -rf feeds/luci/applications/luci-app-serverchan
@@ -19,25 +20,9 @@ rm -rf feeds/packages/libs/libwebsockets
 rm -rf feeds/packages/utils/ttyd
 rm -rf feeds/packages/net/msd_lite
 rm -rf feeds/packages/multimedia/xupnpd
-rm -rf feeds/small/chinadns-ng
-rm -rf feeds/kenzo/luci-app-wechatpush
-rm -rf feeds/kenzo/luci-app-alist
-rm -rf feeds/packages/glib2
-rm -rf feeds/luci/luci-app-brook-server
-rm -rf feeds/luci/luci-app-mwan3helper
-rm -rf feeds/luci/luci-app-naiveproxy
-rm -rf feeds/luci/luci-app-qosv4
-rm -rf feeds/luci/luci-app-samba
-rm -rf feeds/luci/luci-app-ssocks
-rm -rf feeds/luci/luci-app-ssr-libev-server
-rm -rf feeds/luci/luci-app-ssr-plus
-rm -rf feeds/luci/luci-app-trojan-server
-rm -rf feeds/luci/luci-app-turboacc
-rm -rf feeds/luci/luci-app-v2ray-server
-rm -rf feeds/luci/luci-app-vssr
-rm -rf feeds/packages/softethervpn
-rm -rf feeds/packages/sqm-scripts
-rm -rf feeds/packages/v2raya
+rm -rf feeds/packages/net/chinadns-ng
+rm -rf feeds/packages/net/alist
+
 
 # 修改版本为编译日期
 date_version=$(date +"%y.%m.%d")
@@ -79,10 +64,10 @@ function git_sparse_clone() {
 #添加额外插件
 git clone --depth=1 https://github.com/jarod360/luci-app-ttyd package/luci-app-ttyd
 git clone --depth=1 https://github.com/jarod360/packages package/mypackge
-git clone --depth=1 -b openwrt-18.06 https://github.com/tty228/luci-app-wechatpush.git package/luci-app-serverchan
+git clone --depth=1 https://github.com/tty228/luci-app-wechatpush.git package/luci-app-wechatpush
 git clone --depth=1 https://github.com/jarod360/luci-app-xupnpd package/luci-app-xupnpd
 git clone --depth=1 https://github.com/jarod360/luci-app-msd_lite package/luci-app-msd_lite
-git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
+git clone --depth=1 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
 git_sparse_clone master https://github.com/coolsnowwolf/packages multimedia/xupnpd
 git_sparse_clone master https://github.com/kenzok8/small chinadns-ng
 git_sparse_clone master https://github.com/kenzok8/openwrt-packages luci-app-alist
@@ -139,6 +124,3 @@ sed -i "/.login-page {/i\\
   bottom: 0\!important;\n\
 }" package/luci-theme-argon/htdocs/luci-static/argon/css/cascade.css
 sed -i "s/margin-left: 0rem \!important;/margin-left: auto\!important;/g" package/luci-theme-argon/htdocs/luci-static/argon/css/cascade.css
-#更新安装feeds
-./scripts/feeds update -a
-./scripts/feeds install -a
