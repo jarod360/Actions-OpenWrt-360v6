@@ -83,7 +83,7 @@ sed -i 's/Alist 文件列表/Alist/g' package/luci-app-alist/po/zh-cn/alist.po
 sed -i 's|rm -rf /tmp/luci-*|rm -rf /tmp/luci-* && rm -f /etc/init.d/alist|g' package/luci-app-alist/root/etc/uci-defaults/50-luci-alist
 
 #去除serverchan无效检测网址
-sed -i 's|https://www.baidu.com https://www.qidian.com https://www.douban.com|https://www.baidu.com|g' package/luci-app-serverchan/root/usr/share/serverchan/serverchan
+#sed -i 's|https://www.baidu.com https://www.qidian.com https://www.douban.com|https://www.baidu.com|g' package/luci-app-serverchan/root/usr/share/serverchan/serverchan
 
 # 调整argon登录框为居中
 sed -i "/.login-page {/i\\
