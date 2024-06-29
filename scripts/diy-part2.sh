@@ -79,7 +79,6 @@ sed -i 's/nas/services/g' package/luci-app-alist/luasrc/view/alist/admin_info.ht
 sed -i 's/nas/services/g' package/luci-app-alist/luasrc/view/alist/alist_log.htm
 sed -i 's/nas/services/g' package/luci-app-alist/luasrc/view/alist/alist_status.htm
 sed -i 's/Alist 文件列表/Alist/g' package/luci-app-alist/po/zh-cn/alist.po
-sed -i 's|rm -rf /tmp/luci-*|rm -rf /tmp/luci-* && rm -f /etc/init.d/alist|g' package/luci-app-alist/root/etc/uci-defaults/50-luci-alist
 
 #去除serverchan无效检测网址
 sed -i 's|https://www.baidu.com https://www.qidian.com https://www.douban.com|https://www.baidu.com|g' package/luci-app-serverchan/root/usr/share/serverchan/serverchan
