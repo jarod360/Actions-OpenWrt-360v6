@@ -67,6 +67,7 @@ git clone --depth=1 -b openwrt-18.06 https://github.com/tty228/luci-app-wechatpu
 git clone --depth=1 https://github.com/jarod360/luci-app-xupnpd package/luci-app-xupnpd
 git clone --depth=1 https://github.com/jarod360/luci-app-msd_lite package/luci-app-msd_lite
 git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
+git clone --depth=1 https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
 git_sparse_clone master https://github.com/coolsnowwolf/packages multimedia/xupnpd
 git_sparse_clone master https://github.com/kenzok8/small chinadns-ng
 git_sparse_clone master https://github.com/kenzok8/openwrt-packages luci-app-alist
