@@ -71,6 +71,7 @@ git clone --depth=1 https://github.com/destan19/OpenAppFilter.git package/OpenAp
 git_sparse_clone master https://github.com/coolsnowwolf/packages multimedia/xupnpd
 git_sparse_clone master https://github.com/kenzok8/small chinadns-ng
 git_sparse_clone master https://github.com/kenzok8/openwrt-packages luci-app-alist
+git_sparse_clone master https://github.com/xiaorouji/openwrt-passwall luci-app-passwall
 
 #调整alist到服务菜单及修改名称
 sed -i 's/+alist //g' package/luci-app-alist/Makefile
