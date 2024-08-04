@@ -22,6 +22,7 @@ rm -rf feeds/packages/multimedia/xupnpd
 rm -rf feeds/small/chinadns-ng
 rm -rf feeds/kenzo/luci-app-wechatpush
 rm -rf feeds/kenzo/luci-app-alist
+rm -rf feeds/passwall/luci-app-passwall
 
 # 修改版本为编译日期
 date_version=$(date +"%y.%m.%d")
